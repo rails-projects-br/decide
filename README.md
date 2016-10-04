@@ -1,24 +1,59 @@
-# README
+# DECIDE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Decide is an application to help groups and teams take decisions over issues.
 
-Things you may want to cover:
+## Running the application
 
-* Ruby version
+To run the application, you should have the following dependencies installed.
 
-* System dependencies
+### Dependencies
 
-* Configuration
+This application runs on
 
-* Database creation
+- Ruby 2.3.x
+- Rails 5.0.1
+- PostgreSQL
 
-* Database initialization
+### Download the application code
 
-* How to run the test suite
+First clone the repository
 
-* Services (job queues, cache servers, search engines, etc.)
+###### SSH
 
-* Deployment instructions
+```
+git clone git@github.com:rails-projects-br/decide.git
+```
 
-* ...
+###### HTTP
+
+```
+git clone https://github.com/rails-projects-br/decide.git
+```
+
+### Install the gems
+
+```
+cd decide
+bundle install
+```
+
+### Create the Database
+
+Make sure your PostgreSQL service is running. Then run:
+
+```
+rake db:create
+rake db:migrate
+```
+
+### Start the Rails server
+
+```
+rails s
+```
+
+### Access the application
+
+Open http://localhost:5000 on your web browser.
+
+## ENJOY!
