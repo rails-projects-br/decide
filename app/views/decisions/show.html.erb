@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Decision:</strong>
+  <%= @decision.decision %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @decision.score %>
+</p>
+
+<p>
+  <strong>Problem:</strong>
+  <%= @decision.problem %>
+</p>
+
+<%= link_to 'Edit', edit_decision_path(@decision) %> |
+<%= link_to 'Back', decisions_path %>

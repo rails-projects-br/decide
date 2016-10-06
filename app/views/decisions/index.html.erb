@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Decisions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Decision</th>
+      <th>Score</th>
+      <th>Problem</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @decisions.each do |decision| %>
+      <tr>
+        <td><%= decision.decision %></td>
+        <td><%= decision.score %></td>
+        <td><%= decision.problem.title %></td>
+        <td><%= link_to 'Show', decision %></td>
+        <td><%= link_to 'Edit', edit_decision_path(decision) %></td>
+        <td><%= link_to 'Destroy', decision, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Decision', new_decision_path %>
