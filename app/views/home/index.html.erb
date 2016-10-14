@@ -1,0 +1,17 @@
+<% if current_user %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <ul>
+      <li><strong>Nome:</strong> <%= current_user.name %></li>
+      <li><strong>Email:</strong> <%= current_user.email %></li>
+      <li><strong>Provedor:</strong> <%= current_user.provider %></li>
+      <li><strong>uID:</strong> <%= current_user.uid %></li>
+      <li><strong>Avatar:</strong> <%= current_user.image %></li>
+    </ul>
+  </div>
+</div>
+<% else %>
+<div class="jumbotron">
+  <h2>Decide <small>é uma aplicação que facilita a tomada de decisões em uma equipe.</small></h2>
+</div>
+<% end %>

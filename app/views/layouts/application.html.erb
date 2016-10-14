@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Decide</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Decide</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
+  <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to 'Decide', root_path, class: 'navbar-brand' %>
+        </div>
+        <div id="navbar">
+          <% if current_user %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= image_tag current_user.image, alt: current_user.name, class: 'img-circle', width: 50, height: 50 %></li>
+            <li><%= link_to 'Sair', logout_path, method: :delete %></li>
+          </ul>
+          <% else %>
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Github', '/auth/github' %></li>
+          </ul>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="row">
+      <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %> alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert"
+        aria-label="Close"><span aria-hidden="true">&times;</span>
+      </button>
+      <%= value %>
+    </div>
+    <% end %>
+  </div>
+  <div class="row">
     <%= yield %>
-  </body>
+  </div>
+</div>
+</body>
 </html>
