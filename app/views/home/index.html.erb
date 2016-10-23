@@ -1,0 +1,13 @@
+<% if current_user %>
+<ul>
+  <li><strong>Nome:</strong> <%= current_user.name %></li>
+  <li><strong>Email:</strong> <%= current_user.email %></li>
+  <li><strong>Provedor:</strong> <%= current_user.provider %></li>
+  <li><strong>uID:</strong> <%= current_user.uid %></li>
+  <li><strong>Avatar:</strong> <%= current_user.image %></li>
+</ul>
+<p><%= link_to 'Sair', logout_path, method: :delete %></p>
+<% else %>
+  <p>Página Inicial.</p>
+  <p><%= link_to 'Login com Github', '/auth/github' %></p>
+<% end %>
